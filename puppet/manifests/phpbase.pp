@@ -14,6 +14,7 @@ exec
     require => Exec['add php55 apt-repo']
 }
 
+include bootstrap
 include other #curl and sqlite
 include php55 #specific setup steps for 5.5
 include php
@@ -23,9 +24,9 @@ include phpmyadmin
 include beanstalkd
 include redis
 include memcached
+include composer
 include npm
-include git
-include known_hosts
+include e107
 
 class { 'postgresql::server':
   config_hash => {
