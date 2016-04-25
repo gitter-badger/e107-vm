@@ -12,7 +12,7 @@ class e107 {
   }
 
   exec { 'create e107 project':
-    command => "/bin/bash -c 'cd /var/www/ && shopt -s dotglob nullglob; composer create-project --stability=dev lonalore/e107 .'",
+    command => "/bin/bash -c 'cd /var/www/ && shopt -s dotglob nullglob; composer create-project --stability=dev e107inc/e107 .'",
     require => [Exec['global composer'], Package['php5'], Package['git-core'], Exec['clean www directory']],
     timeout => 1800,
     logoutput => true
