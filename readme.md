@@ -93,3 +93,9 @@ This e107 template should be easily deployable to cloud services via vagrant wit
 * Redis - 2.2.12
 * Memcached - 1.4.13
 * Node.js - 0.12
+
+----
+
+##### Screenshot #####
+
+![Screenshot 1](https://dl.dropboxusercontent.com/u/17751753/e107-vm/installed.png)
