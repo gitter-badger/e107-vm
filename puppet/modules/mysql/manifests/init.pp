@@ -22,7 +22,7 @@ class mysql
   {
     "set-mysql-password":
       onlyif  => "mysqladmin -uroot -proot status",
-      command => "mysqladmin -uroot -proot password root",
+      command => "mysqladmin -uroot password root",
       require => Service["mysql"],
   }
 
