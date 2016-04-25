@@ -13,7 +13,7 @@ class e107 {
 
   exec { 'clone e107 project':
     command => "/bin/bash -c 'cd /var/www/ && shopt -s dotglob nullglob; git clone https://github.com/e107inc/e107.git .'",
-    require => [Package['php5'], Package['git-core']],
+    require => [Package['php5'], Package['git-core'], Exec['clean www directory']],
     timeout => 1800,
     logoutput => true
   }
