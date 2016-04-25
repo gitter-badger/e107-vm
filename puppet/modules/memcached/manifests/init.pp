@@ -1,6 +1,6 @@
 class memcached {
-    package { 'memcached':
-        ensure => present,
-        require => Exec['apt-get update']
-    }
+  package { 'memcached':
+    ensure  => present,
+    require => Exec['apt-get update']
+  }
 }
