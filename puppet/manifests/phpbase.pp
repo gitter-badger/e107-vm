@@ -39,7 +39,7 @@ class { 'postgresql::server':
   require     => [Exec['apt-get update'], Package['python-software-properties']]
 }
 
-postgresql::db { 'database':
+postgresql::db { 'e107':
   user     => 'root',
   password => 'root'
 }

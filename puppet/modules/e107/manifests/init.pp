@@ -22,5 +22,24 @@ class e107 {
     command => "/bin/bash -c 'rm -rf /var/www/.git'",
     require => [Exec['clone e107 project']]
   }
+  
+  exec { 'remove install.php':
+    command => "/bin/bash -c 'rm -rf /var/www/install.php'",
+    require => [Exec['clone e107 project']]
+  }
+  
+  file { 'create e107_config.php':
+    mode   => 0644,
+    owner  => 'vagrant',
+    group  => 'vagrant',
+    source => "/vagrant/puppet/modules/e107/templates/e107_config.php",
+    path => "/var/www/e107_config.php",
+    require => [Exec['clone e107 project']]
+  }
+  
+  exec {'import database tables':
+    command => '/usr/bin/mysql -uroot -proot e107 < /vagrant/puppet/modules/e107/templates/e107.sql',
+    require => [Exec['grant-default-db']]
+  }
 
 }
