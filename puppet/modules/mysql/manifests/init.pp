@@ -1,6 +1,8 @@
 class mysql
 {
 
+  $MySqlPassword = "root"
+
   package
   {
     "mysql-server":
@@ -21,23 +23,23 @@ class mysql
   exec
   {
     "set-mysql-password":
-      onlyif  => "mysqladmin -uroot -proot status",
-      command => "mysqladmin -uroot password root",
+      onlyif  => "mysqladmin -uroot status",
+      command => "mysqladmin -uroot password $MySqlPassword",
       require => Service["mysql"],
   }
 
   exec
   {
     "create-default-db":
-      unless  => "/usr/bin/mysql -uroot -proot database",
-      command => "/usr/bin/mysql -uroot -proot -e 'create database `database`;'",
+      unless  => "/usr/bin/mysql -uroot -p$MySqlPassword database",
+      command => "/usr/bin/mysql -uroot -p$MySqlPassword -e 'create database `database`;'",
       require => [Service["mysql"], Exec["set-mysql-password"]]
   }
 
   exec
   {
     "grant-default-db":
-      command => "/usr/bin/mysql -uroot -proot -e 'grant all on `database`.* to `root@localhost`;'",
+      command => "/usr/bin/mysql -uroot -p$MySqlPassword -e 'grant all on `database`.* to `root@localhost`;'",
       require => [Service["mysql"], Exec["create-default-db"]]
   }
 }
