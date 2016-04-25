@@ -11,11 +11,16 @@ class e107 {
     require => Package['apache2']
   }
 
-  exec { 'create e107 project':
+  exec { 'clone e107 project':
     command => "/bin/bash -c 'cd /var/www/ && shopt -s dotglob nullglob; git clone https://github.com/e107inc/e107.git .'",
-    require => [Package['php5'], Package['git-core'], Exec['clean www directory']],
+    require => [Package['php5'], Package['git-core']],
     timeout => 1800,
     logoutput => true
+  }
+
+  exec { 'remove .git':
+    command => "/bin/bash -c 'cd /var/www/ && shopt -s dotglob nullglob; rm -rf !$/.git'",
+    require => [Exec['clone e107 project']]
   }
 
 }
