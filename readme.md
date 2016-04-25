@@ -1,5 +1,7 @@
 # e107 VM
 
+[![Join the chat at https://gitter.im/lonalore/e107-vm](https://badges.gitter.im/lonalore/e107-vm.svg)](https://gitter.im/lonalore/e107-vm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 A basic Ubuntu 12.04 Vagrant setup with [e107 v2](https://github.com/e107inc/e107) and PHP 5.5.
 
 ## Requirements
