@@ -19,7 +19,7 @@ A basic Ubuntu 12.04 Vagrant setup with [e107 v2](https://github.com/e107inc/e10
 
 ## Usage
 
-Some basic information on interacting with the vagrant box
+Some basic information on interacting with the vagrant box.
 
 ### Port Forwards
 
@@ -39,6 +39,11 @@ references in your `puppet/manifests/phpbase.pp`.
 ### PHPmyAdmin
 
 Accessible at `http://localhost:8888/phpmyadmin` using MySQL access credentials above.
+
+### e107 Account
+
+* User: admin
+* Password: admin
 
 ### Vagrant
 
