@@ -31,15 +31,15 @@ class mysql
   exec
   {
     "create-default-db":
-      unless  => "/usr/bin/mysql -uroot -p$MySqlPassword database",
-      command => "/usr/bin/mysql -uroot -p$MySqlPassword -e 'create database `database`;'",
+      unless  => "/usr/bin/mysql -uroot -p$MySqlPassword e107",
+      command => "/usr/bin/mysql -uroot -p$MySqlPassword -e 'create database `e107`;'",
       require => [Service["mysql"], Exec["set-mysql-password"]]
   }
 
   exec
   {
     "grant-default-db":
-      command => "/usr/bin/mysql -uroot -p$MySqlPassword -e 'grant all on `database`.* to `root@localhost`;'",
+      command => "/usr/bin/mysql -uroot -p$MySqlPassword -e 'grant all on `e107`.* to `root@localhost`;'",
       require => [Service["mysql"], Exec["create-default-db"]]
   }
 }

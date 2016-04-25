@@ -1,7 +1,7 @@
 .vagrant
 package.box
 
-# Numerous always-ignore extensions
+# Numerous always-ignore extensions.
 *.diff
 *.err
 *.orig
@@ -13,7 +13,7 @@ package.box
 *~
 *.sass-cache
 
-# OS or Editor files and folders
+# OS or Editor files and folders.
 .DS_Store
 Thumbs.db
 .cache
@@ -24,7 +24,7 @@ Thumbs.db
 nbproject
 .idea
 
-# Dreamweaver added files
+# Dreamweaver added files.
 _notes
 dwsync.xml
 
@@ -32,10 +32,10 @@ dwsync.xml
 *.komodoproject
 .komodotools
 
-# Folders to ignore
+# Folders to ignore.
 .hg
 .svn
 .CVS
 
-# e107 files
+# E107 files.
 /www/*

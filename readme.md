@@ -14,7 +14,7 @@ A basic Ubuntu 12.04 Vagrant setup with [e107 v2](https://github.com/e107inc/e10
 * run `vagrant up` inside the newly created directory
 * (the first time you run vagrant it will need to fetch the virtual box image which is ~300mb so depending on your download speed this could take some time)
 * Vagrant will then use puppet to provision the base virtual box with our LAMP stack (this could take a few minutes)
-* You can verify that everything was successful by opening http://localhost:8888 in a browser
+* You can verify that everything was successful by opening `http://localhost:8888` in a browser
 * If you have errors then you can run `vagrant provision` to re-run the setup
 
 ## Usage
@@ -30,15 +30,15 @@ Some basic information on interacting with the vagrant box
 ### Default MySQL/PostgreSQL Database
 
 * User: root
-* Password: (blank)
-* DB Name: database
+* Password: root
+* DB Name: e107
 
 *Note: If you are not going to use PostgreSQL then it is a good idea to comment out the postgres
 references in your `puppet/manifests/phpbase.pp`.
 
 ### PHPmyAdmin
 
-Accessible at http://localhost:8888/phpmyadmin using MySQL access credentials above.
+Accessible at `http://localhost:8888/phpmyadmin` using MySQL access credentials above.
 
 ### Vagrant
 
