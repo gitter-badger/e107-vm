@@ -5,15 +5,15 @@ class e107 {
   }
 
   # We need to clean the directory in case a .DS_STORE file or other junk pops up before
-  # the composer create-project is called.
+  # the 'git clone ...' is called.
   exec { 'clean www directory':
     command => "/bin/sh -c 'cd /var/www && find -mindepth 1 -delete'",
     require => Package['apache2']
   }
 
   exec { 'create e107 project':
-    command => "/bin/bash -c 'cd /var/www/ && shopt -s dotglob nullglob; composer create-project --stability=dev e107inc/e107 .'",
-    require => [Exec['global composer'], Package['php5'], Package['git-core'], Exec['clean www directory']],
+    command => "/bin/bash -c 'cd /var/www/ && shopt -s dotglob nullglob; git clone https://github.com/e107inc/e107.git .'",
+    require => [Package['php5'], Package['git-core'], Exec['clean www directory']],
     timeout => 1800,
     logoutput => true
   }
