@@ -19,7 +19,7 @@ class e107 {
   }
 
   exec { 'remove .git':
-    command => "/bin/bash -c 'cd /var/www/ && shopt -s dotglob nullglob; rm -rf !$/.git'",
+    command => "/bin/bash -c 'rm -rf /var/www/.git'",
     require => [Exec['clone e107 project']]
   }
 
